@@ -50,15 +50,15 @@
                                     </div>
                                 </div>
 
-                                <div class="card-body text-center">
-                                    <legend class="text-center text-primary" th:text="${exito}"></legend>
-                                    <div class="card border-primary bg-light mb-1 p-3">
+                                <div class="card bg-light border-primary mb-4">
+                                    <legend class="text-center bg-primary text-white p-2" th:text="${exito}"></legend>
+                                    <div class="card-body text-center mb-1 p-3">
                                         <h6 class="text-primary" th:text="'Nombre: '+${usuario.nombre}"></h6>
-                                        <p class="mb-0" th:text="'Telefono: '+${usuario.telefono}"></p>
-                                        <p class="mb-0" th:text="'Localidad: '+${usuario.localidad}"></p>
-                                        <p class="mb-0" th:text="'Domicilio: '+${usuario.domicilio}"></p>
+                                        <p class="text-secondary mb-0" th:text="'Telefono: '+${usuario.telefono}"></p>
+                                        <p class="text-secondary mb-0" th:text="'Localidad: '+${usuario.localidad}"></p>
+                                        <p class="text-secondary mb-0" th:text="'Domicilio: '+${usuario.domicilio}"></p>
                                         <h6 class="text-info mb-3" th:text="'Usuario: '+${usuario.email}"></h6> 
-                                        <div>
+                                        <div class="text-center">
                                             <a class="btn btn-primary" type="button" th:href="@{/login}">Aceptar</a>
                                         </div>
                                     </div>

@@ -95,14 +95,22 @@
                                     
                                 <div class="card-body p-0 mb-2" th:if="${!viajes.isEmpty()}">
                                     <div class="card-header border border-primary p-1 mb-1" th:each="viaje : ${viajes}">
-                                        <h6 class="bg-info text-center text-white mb-1 p-1" th:text="'Viaje Publicado'"></h6>
-                                        <h6 class="mb-1" th:text="'Origen: '+${viaje.origen}"></h6>
+                                        <h6 class="bg-primary text-center text-white mb-1 p-1" th:text="'Viaje Publicado'"></h6>
+                                        <div>
+                                        <span class="text-secondary"><strong>Origen:</strong></span>
+                                        <span class="text-secondary" th:text="' '+${viaje.origen}"></span>
+                                        </div>
                                         <div class="row">
-                                            <div class="col-8">
-                                                
-                                                <h6 class="mb-0" th:text="'Destino: '+${viaje.destino}"></h6>
-                                                <p class="mb-1" th:text="'Fecha de viaje: '+${viaje.fecha}"></p>
-                                            </div>
+                                            <div class="col-8"> 
+                                        <div>
+                                        <span class="text-secondary"><strong>Destino:</strong></span>
+                                        <span class="text-secondary" th:text="' '+${viaje.destino}"></span>
+                                        </div>
+                                        <div>
+                                        <span class="text-secondary"><strong>Fecha:</strong></span>
+                                        <span class="text-secondary" th:text="' '+${viaje.fecha}"></span>
+                                        </div>          
+                                        </div>
                                             <div class="col-4">
                                                 <div class="row text-center">   
                                                     <div class="col-4">
@@ -134,11 +142,20 @@
                                     <div class="card-body p-0 mb-2" th:if="${!viajeReserva.isEmpty()}">
                                         <div class="card-header border border-success p-1 mb-1" th:each="viaje : ${viajeReserva}">
                                             <h6 class="text-center bg-success text-white mb-1 p-1" th:text="'Reserva de Viaje'"></h6>
-                                            <h6 class="mb-1" th:text="'Origen: '+${viaje.origen}"></h6>
+                                            <div>
+                                        <span class="text-secondary"><strong>Origen:</strong></span>
+                                        <span class="text-secondary" th:text="' '+${viaje.origen}"></span>
+                                        </div>
                                             <div class="row">
                                                 <div class="col-8">                                                    
-                                                    <h6 class="mb-0" th:text="'Destino: '+${viaje.destino}"></h6>
-                                                    <p class="mb-0" th:text="'Fecha de Viaje: '+${viaje.fecha}"></p>
+                                                  <div>
+                                        <span class="text-secondary"><strong>Destino:</strong></span>
+                                        <span class="text-secondary" th:text="' '+${viaje.destino}"></span>
+                                        </div>
+                                        <div>
+                                        <span class="text-secondary"><strong>Fecha:</strong></span>
+                                        <span class="text-secondary" th:text="' '+${viaje.fecha}"></span>
+                                        </div> 
                                                 </div>
                                                 <div class="col-4">
                                                     <div class="row">   
@@ -155,7 +172,13 @@
                                             </div>
                                             <div th:each="reserva : ${viaje.reserva}">
                                                 <div th:if="${reserva.usuarioViajero.idUsuario} == ${usuario.idUsuario}">
-                                                    <p class="mb-0" th:text="'Conductor: '+${viaje.usuarioConductor.nombre}+' - Asientos Reservados: '+${reserva.asientoReservado}"></p>
+                                                    <div>
+                                        <span class="text-info"><strong>Conductor:</strong></span>
+                                        <span class="text-secondary" th:text="' '+${viaje.usuarioConductor.nombre}"></span>
+                                        <span class="text-info"><strong> - Asientos Reservados: </strong></span>
+                                        <span class="text-secondary" th:text="' '+${reserva.asientoReservado}"></span>
+                                        </div> 
+                                                    
                                                     <h6 class="text-success" th:text="'Estado de Reserva: '+${reserva.estado}"></h6>
                                                 </div>
                                             </div>
@@ -170,17 +193,28 @@
                                                             <h6>Calificar a Conductor</h6>
                                                         </div>
                                                     <div class="card-body text-center p-1">
-                                                    <h6 class="text-success mb-2" th:text="'Conductor: '+${viaje.usuarioConductor.nombre}"></h6>    
+                                                        <div>
+                                                            <span class="text-secondary"><strong>Conductor: </strong></span>
+                                                            <span class="text-success" th:text="' '+${viaje.usuarioConductor.nombre}"></span>
+                                                        </div>    
+                                                      
                                                     <h6 class="text-primary mb-0">Datos del Viaje:</h6>      
-                                                    <p class="mb-0" th:text="'Origen: '+${viaje.origen}+' - Destino: '+${viaje.destino}"></p>
-                                                    <p class="mb-0" th:text="'Fecha de Viaje: '+${viaje.fecha}"></p>
+                                                    <div>
+                                                <span class="text-secondary"><strong>Origen:</strong></span>
+                                                <span class="mb-1 text-secondary" th:text="' '+${viaje.origen}"></span>
+                                                <span class="text-secondary"><strong>Destino:</strong></span>
+                                                <span class="mb-1 text-secondary" th:text="' '+${viaje.destino}"></span>
+                                                </div>
+                                                <div>
+                                                <span class="text-secondary"><strong>Fecha:</strong></span>
+                                                <span class="mb-1 text-secondary" th:text="' '+${viaje.fecha}"></span>    
+                                                </div>    
                                                     </div>
-                                                    
                                                         <div class="card p-2">
                                                             <form th:action="@{/calificacion/registraViajero}" method="POST">                                                            
                                                                 <input hidden th:value="${reserva.idReserva}" name="idReserva">                                                                 
-                                                                <div class="mb-4 text-center">
-                                                                            <label for="calificacion" class="form-label">Puntuación:</label>
+                                                                <div class="text-center">
+                                                                            <label for="calificacion" class="form-label text-secondary">Puntuación:</label>
                                                                             <div id="calificacion" class="star-rating">
                                                                                 <i class="fa fa-star" data-value="1"></i>
                                                                                 <i class="fa fa-star" data-value="2"></i>
@@ -190,16 +224,15 @@
                                                                             </div>
                                                                             <input type="hidden" name="puntuacion" id="puntuacion" required>
                                                                 </div>                                                                                         
-                                                                <div class="mb-4">
-                                                                        <label for="comentario" class="form-label">Comentario (opcional):</label>
-                                                                        <textarea class="form-control" id="comentario" name="comentario" rows="2" placeholder="Escribe tu comentario aquí..."></textarea>
+                                                                <div class="mb-2">
+                                                                        <label for="comentario" class="form-label text-secondary">Comentario:</label>
+                                                                        <textarea class="form-control" id="comentario" name="comentario" rows="2" placeholder="Escribe tu comentario aquí..." required></textarea>
                                                                 </div>                                                             
                                                                 <div class="text-center">
-                                                                        <button type="submit" class="btn btn-success">Enviar Calificación</button>
+                                                                        <button type="submit" class="btn btn-info">Enviar Calificación</button>
                                                                 </div>
                                                             </form>    
                                                         </div>
-                                                    
                                                 </div>
                                             </div> 
                                         </div>
@@ -207,28 +240,35 @@
                                     
                                     <div class="card-body p-0 mb-2" th:if="${!calificacionConductor.isEmpty()}">
                                         <div class="card-header border border-info p-1 mb-1" th:each="viaje : ${calificacionConductor}">
-                                            <div class="card bg-info text-white text-center p-1">
+                                            <div class="bg-info text-white text-center p-1">
                                                 <h6>Calificar a Viajeros</h6>
                                             </div>
-                                            <div class="text-center">
-                                                <h6 class="text-primary">Datos del Viaje:</h6>    
-                                                <p class="mb-1" th:text="'Origen: '+${viaje.origen}+' - Destino: '+${viaje.destino}"></p>
-                                                <p class="mb-0" th:text="'Fecha de Viaje: '+${viaje.fecha}"></p>
+                                            <div class="card-body text-center p-1">
+                                                <h6 class="text-info mb-0">Datos del Viaje:</h6>
+                                                <div>
+                                                <span class="text-secondary"><strong>Origen:</strong></span>
+                                                <span class="mb-1 text-secondary" th:text="' '+${viaje.origen}"></span>
+                                                <span class="text-secondary"><strong>Destino:</strong></span>
+                                                <span class="mb-1 text-secondary" th:text="' '+${viaje.destino}"></span>
+                                                </div>
+                                                <div>
+                                                <span class="text-secondary"><strong>Fecha:</strong></span>
+                                                <span class="mb-1 text-secondary" th:text="' '+${viaje.fecha}"></span>    
+                                                </div>
                                             </div>
                                             <div class="card">
                                                 <div th:each="reserva : ${viaje.reserva}">
-                                                    <div class="card-body" th:if="${reserva.calificacionConductor == null}">
+                                                    <div class="card-body p-2" th:if="${reserva.calificacionConductor == null}">
                                                         <form th:action="@{/calificacion/registraConductor}" method="POST">                                                            
                                                             <input hidden th:value="${reserva.idReserva}" name="idReserva">
                                                                 <input hidden th:value="${reserva.usuarioViajero.idUsuario}" name="idViajero">    
-                                                                    <div class="mb-4">
+                                                                    <div class="mb-2">
                                                                         <h6 class="text-center">
                                                                             <span class="text-info">Viajero:</span>
-                                                                            <span th:text="${reserva.usuarioViajero.nombre}"></span>
+                                                                            <span class="text-secondary" th:text="${reserva.usuarioViajero.nombre}"></span>
                                                                         </h6>
-
-                                                                        <div class="mb-4 text-center">
-                                                                            <label for="calificacion" class="form-label">Puntuación:</label>
+                                                                        <div class="text-center">
+                                                                            <label for="calificacion" class="form-label text-secondary">Puntuación:</label>
                                                                             <div id="calificacion" class="star-rating">
                                                                                 <i class="fa fa-star" data-value="1"></i>
                                                                                 <i class="fa fa-star" data-value="2"></i>
@@ -238,14 +278,13 @@
                                                                             </div>
                                                                             <input type="hidden" name="puntuacion" id="puntuacion" required>
                                                                         </div>
-
                                                                     </div>                                                                                         
-                                                                    <div class="mb-4">
-                                                                        <label for="comentario" class="form-label">Comentario (opcional):</label>
-                                                                        <textarea class="form-control" id="comentario" name="comentario" rows="2" placeholder="Escribe tu comentario aquí..."></textarea>
+                                                                    <div class="mb-2">
+                                                                        <label for="comentario" class="form-label text-secondary">Comentario:</label>
+                                                                        <textarea class="form-control" id="comentario" name="comentario" rows="2" placeholder="Escribe tu comentario aquí..." required></textarea>
                                                                     </div>                                                             
                                                                     <div class="text-center mb-0">
-                                                                        <button type="submit" class="btn btn-success">Enviar Calificación</button>
+                                                                        <button type="submit" class="btn btn-info">Enviar Calificación</button>
                                                                     </div>
                                                         </form>    
                                                     </div>

@@ -1,4 +1,3 @@
-
 package universidad.tpteColaborativo.entidades;
 
 import java.util.Date;
@@ -13,7 +12,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Usuario {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
@@ -134,7 +133,5 @@ public class Usuario {
     public void setCalificacion(List<Calificacion> calificacion) {
         this.calificacion = calificacion;
     }
-    
-    
-   
+
 }

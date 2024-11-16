@@ -1,4 +1,3 @@
-
 package universidad.tpteColaborativo.entidades;
 
 import java.util.Date;
@@ -14,7 +13,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Viaje {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idViaje;
@@ -127,10 +126,5 @@ public class Viaje {
     public void setCoordinacion(List<Coordinacion> coordinacion) {
         this.coordinacion = coordinacion;
     }
-    
-    
-    
-    
-    
-    
+
 }

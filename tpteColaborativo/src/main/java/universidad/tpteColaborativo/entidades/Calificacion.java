@@ -1,4 +1,3 @@
-
 package universidad.tpteColaborativo.entidades;
 
 import java.util.Date;
@@ -12,7 +11,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Calificacion {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCalificacion;
@@ -95,8 +94,4 @@ public class Calificacion {
         this.usuarioViajero = usuarioViajero;
     }
 
-    
-   
-   
-   
 }

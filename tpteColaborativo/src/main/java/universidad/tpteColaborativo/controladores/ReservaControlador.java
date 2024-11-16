@@ -1,8 +1,8 @@
-
 package universidad.tpteColaborativo.controladores;
 
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,81 +17,82 @@ import universidad.tpteColaborativo.servicios.ViajeServicio;
 
 @Controller
 @RequestMapping("/reserva")
+@PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
 public class ReservaControlador {
-    
+
     @Autowired
     private ReservaServicio reservaServicio;
     @Autowired
     private ViajeServicio viajeServicio;
-    
+
     @GetMapping("/reservarAsiento/{idViaje}")
-    public String reservar(@PathVariable Long idViaje, ModelMap modelo){
-        
+    public String reservar(@PathVariable Long idViaje, ModelMap modelo) {
+
         modelo.put("viaje", viajeServicio.buscarViaje(idViaje));
-        
+
         return "viaje_reservar.html";
     }
-    
+
     @PostMapping("/reservaAsiento")
-    public String reserva(@RequestParam Long idViaje, @RequestParam Integer cantidadAsiento, HttpSession session, ModelMap modelo){
-        
+    public String reserva(@RequestParam Long idViaje, @RequestParam Integer cantidadAsiento, HttpSession session, ModelMap modelo) {
+
         Usuario logueado = (Usuario) session.getAttribute("usuariosession");
-        
+
         try {
-        
-        reservaServicio.reservarAsiento(idViaje, cantidadAsiento, logueado);
-        
-        modelo.put("viaje", viajeServicio.buscarViaje(idViaje));
-        modelo.put("asiento", cantidadAsiento);
-        
-        return "reserva_mostrar.html";
-        
+
+            reservaServicio.reservarAsiento(idViaje, cantidadAsiento, logueado);
+
+            modelo.put("viaje", viajeServicio.buscarViaje(idViaje));
+            modelo.put("asiento", cantidadAsiento);
+
+            return "reserva_mostrar.html";
+
         } catch (MiException ex) {
-            
+
             modelo.put("error", ex.getMessage());
 
             return "reserva_mostrarError.html";
-            
+
         }
     }
-    
+
     @GetMapping("/mostrarReservaConductor")
-    public String mostrarReservaConductor(HttpSession session, ModelMap modelo){
-        
+    public String mostrarReservaConductor(HttpSession session, ModelMap modelo) {
+
         Usuario logueado = (Usuario) session.getAttribute("usuariosession");
-        
+
         modelo.addAttribute("reservas", reservaServicio.buscarReservaConductor(logueado.getIdUsuario()));
-        
+
         return "reserva_mostrarConductor.html";
     }
 
     @GetMapping("/confirma/{idReserva}")
-    public String confirma(@PathVariable Long idReserva, ModelMap modelo){
-        
+    public String confirma(@PathVariable Long idReserva, ModelMap modelo) {
+
         reservaServicio.confirmarReserva(idReserva);
-        
+
         modelo.put("reserva", reservaServicio.buscarReserva(idReserva));
         modelo.put("viaje", viajeServicio.buscarViajeIdReserva(idReserva));
-        
+
         return "reserva_confirmada.html";
     }
-    
+
     @GetMapping("/rechazar/{idReserva}")
-    public String rechazar(@PathVariable Long idReserva, ModelMap modelo){
-        
+    public String rechazar(@PathVariable Long idReserva, ModelMap modelo) {
+
         modelo.put("reserva", reservaServicio.buscarReserva(idReserva));
         modelo.put("viaje", viajeServicio.buscarViajeIdReserva(idReserva));
-        
+
         return "reserva_rechazar.html";
     }
-    
+
     @GetMapping("/rechaza/{idReserva}")
-    public String rechaza(@PathVariable Long idReserva){
-        
+    public String rechaza(@PathVariable Long idReserva) {
+
         reservaServicio.rechazarReserva(idReserva);
-        
+
         return "reserva_rechazada.html";
-            
+
     }
-    
+
 }

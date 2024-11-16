@@ -12,7 +12,7 @@
             color: #ddd;
         }
         .star-rating .fa-star.checked {
-            color: #ffc107; /* Color dorado para las estrellas seleccionadas */
+            color: #ffc107;
         }
     </style>
                         </head>
@@ -56,24 +56,23 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="card-body">
-                                    <legend class="text-center text-primary">Reservas de Viaje a Confirmar</legend>
+                                    <div class="card bg-light border-success mb-4">
+                                    <legend class="text-center bg-success text-white p-2">Reservas de Viaje a Confirmar</legend>
 
                                     <div class="mb-3" th:each="viaje : ${viajes}">
-                                        <div class="card border-primary mb-1 p-3 text-center bg-light" th:each="reserva : ${viaje.reserva}" th:if="${reserva.estado} == 'PENDIENTE'"> 
+                                        <div class="card-body mb-1 p-3 text-center" th:each="reserva : ${viaje.reserva}" th:if="${reserva.estado} == 'PENDIENTE'"> 
                                             <h6 th:text="'Localidad de Origen: '+${viaje.origen}"></h6>
                                             <h6 th:text="'Localidad de Destino: '+${viaje.destino}"></h6>
                                             <p class="mb-0" th:text="'Fecha de Viaje: '+${viaje.fecha}"></p>
                                             <p class="mb-2" th:text="'Detalle: '+${viaje.detalle}"></p>
                                             <h6 class="text-primary" th:text="'Asiento Reservado: '+${reserva.asientoReservado}"></h6>
-                                            <div>
-                                                <div class="text-center">
+
+                                                <div class="card-body text-center bg-light p-2 mb-1">
                                                     <h6 class="mb-1 text-success" th:text="'Viajero: '+${reserva.usuarioViajero.nombre}"></h6>
-                                                    <h6 class="text-dark">Calificación del Viajero</h6>
-                                                </div>
-                                                <div class="text-center mb-3">
+                                                    <p class="text-secondary mb-1">(Calificación del Viajero)</p>
+                                                
+                                                <div class="text-center">
                                                     <div class="star-rating">
-                                                        <!-- Utilizamos Thymeleaf para aplicar la clase 'checked' a las estrellas según la calificación -->
                                                         <i class="fa fa-star" th:classappend="${reserva.usuarioViajero.puntuacion >= 1 ? 'checked' : ''}"></i>
                                                         <i class="fa fa-star" th:classappend="${reserva.usuarioViajero.puntuacion >= 2 ? 'checked' : ''}"></i>
                                                         <i class="fa fa-star" th:classappend="${reserva.usuarioViajero.puntuacion >= 3 ? 'checked' : ''}"></i>
@@ -81,7 +80,8 @@
                                                         <i class="fa fa-star" th:classappend="${reserva.usuarioViajero.puntuacion >= 5 ? 'checked' : ''}"></i>
                                                     </div>
                                                 </div>
-                                            </div>                                        
+                                                    <a class="border-dark text-secondary btn-sm" type="button" th:href="@{/calificacion/mostrarViajero/__${reserva.usuarioViajero.idUsuario}__}">Ver Calificaciones</a>
+                                                </div>    
                                             <div class="d-flex justify-content-center">
                                            
                                                 <a class="btn btn-success mx-2" type="button" th:href="@{/reserva/confirma/__${reserva.idReserva}__}">Confirmar</a>

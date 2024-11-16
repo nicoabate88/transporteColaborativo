@@ -6,9 +6,7 @@
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">                   
                     <link rel="stylesheet" href="/css/estilos.css">   
                         </head>
-    
                             <body>
-
                                 <div class="container bg-light">                                                          
 
                                     <div class="card-body">
@@ -46,16 +44,28 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="card-body">
-                                    <legend class="text-center text-primary">Coordinar Viaje</legend>
+                                    <div class="card bg-light border-success mb-4">
+                                    <legend class="text-center bg-success text-white p-2">Coordinar Viaje</legend>
 
                                     <div class="mb-3" th:each="viaje : ${viajes}">
-                                        <div class="card border-primary bg-light mb-1 p-3"> 
+                                        <div class="card-body mb-1 p-3"> 
                                             <div class="text-center">
-                                            <h6 th:text="'Localidad de Origen: '+${viaje.origen}"></h6>
-                                            <h6 th:text="'Localidad de Destino: '+${viaje.destino}"></h6>
-                                            <p class="mb-0" th:text="'Fecha de Viaje: '+${viaje.fecha}"></p>
-                                            <p class="mb-2" th:text="'Detalle: '+${viaje.detalle}"></p>
+                                            <div>
+                                            <span class="text-secondary"><strong>Localidad de Origen:</strong></span>    
+                                            <span class="text-success" th:text="${viaje.origen}"></span>
+                                            </div>
+                                            <div>    
+                                            <span class="text-secondary"><strong>Localidad de Destino:</strong></span>    
+                                            <span class="text-success" th:text="${viaje.destino}"></span>
+                                            </div>
+                                            <div>
+                                            <span class="text-secondary"><strong>Fecha de Viaje:</strong></span>
+                                            <span class="mb-0 text-secondary" th:text="${viaje.fecha}"></span>
+                                            </div>
+                                            <div class="mb-3">
+                                            <span class="text-secondary"><strong>Detalle:</strong></span>
+                                            <span class="mb-2 text-secondary" th:text="${viaje.detalle}"></span>
+                                            </div>
                                             </div>
                                             <div class="row" th:if="${viaje.coordinacion} == null">
                                             <div class="col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
@@ -70,14 +80,15 @@
                                             <div class="card mb-3 p-2" th:if="${!viaje.coordinacion.isEmpty()}">
                                             <h6 class="text-dark">Mensajes:</h6>    
                                             <div id="dimagray" th:each="coordinacion : ${viaje.coordinacion}">
-                                            <p class="mb-1" th:text="'De '+${coordinacion.usuario.nombre}+': '+${coordinacion.mensaje}"></p> 
+                                            <span id="dimagray" th:text="'De '+${coordinacion.usuario.nombre}+': '"></span>    
+                                            <span id="gray" class="mb-1" th:text="${coordinacion.mensaje}"></span> 
                                             </div>
                                             </div>    
                                                 
-                                            <h6 class="text-info">Nuevo Mensaje</h6>
+                                            <h6 class="text-success">Nuevo Mensaje</h6>
                                             <div class="mb-2">
                                             <span><strong>Para:</strong></span>
-                                            <span  th:text="${viaje.usuarioConductor.nombre}+' (Conductor)'"></span>
+                                            <span id="dimagray" th:text="${viaje.usuarioConductor.nombre}+' (Conductor)'"></span>
                                             </div>
                                             <div>
                                                 <form th:action="@{/coordinacion/registraViajero}" method="POST">
@@ -87,10 +98,10 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
-                                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                                        <button type="submit" class="btn btn-success">Enviar</button>
                                                     </div>
                                                     <div class="col-3 col-sm-3 col-md-3 col-lg-2 col-xl-2">
-                                                        <a class="btn btn-primary" type="button" th:href="@{/coordinacion/mostrar}">Volver</a>
+                                                        <a class="btn btn-success" type="button" th:href="@{/coordinacion/mostrar}">Volver</a>
                                                     </div>
                                                 </div>
                                                 </form>    

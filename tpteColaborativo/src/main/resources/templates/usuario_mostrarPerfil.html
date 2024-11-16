@@ -54,27 +54,27 @@
                                             </div>
                                         </div>
                                 </div>
-                                <div class="card-body text-center">
-                                    <legend class="text-center text-primary">Mis Viajes</legend>
-                                    <div class="card border-primary bg-light mb-1 p-3" th:if="${conductor} != 0">
+                                <div class="card bg-light border-primary mb-4">
+                                    <legend class="text-center bg-primary text-white p-2">Mis Viajes</legend>
+                                    <div class="card-body mb-1 p-3" th:if="${conductor} != 0">
                                         <h6 class=" text-primary mb-2 text-center" th:text="'Viajes como Conductor: '+${conductor}"></h6>
                                         <div class="text-center">
                                                 <a class="btn btn-primary" type="button" th:href="@{/usuario/mostrarViajes/__${usuario.idUsuario}__}">Ver</a>
                                             </div>
                                     </div>
-                                    <div class="card border-success bg-light mb-1 p-3" th:if="${viajero} != 0">
+                                    <div class="card-body mb-1 p-3" th:if="${viajero} != 0">
                                         <h6 class="text-success mb-2 text-center" th:text="'Viajes como Viajero: '+${viajero}"></h6> 
                                         <div class="text-center">
                                                 <a class="btn btn-success" type="button" th:href="@{/usuario/mostrarReservas/__${usuario.idUsuario}__}">Ver</a>
                                             </div>
                                     </div>
-                                    <div class="card border-primary bg-light mb-1 p-3" th:if="${flag} == true">
-                                        <h6 class="text-primary mb-2 text-center" th:text="'Aún no tienes Viajes realizados'"></h6> 
+                                    <div class="card-body mb-2 p-3 text-center" th:if="${flag} == true">
+                                        <h6 th:text="'Aún no tienes Viajes realizados'"></h6> 
                                     </div>
                                 </div>
-                                <div class="card-body text-center">
-                                    <legend class="text-center text-info">Mis Datos</legend>
-                                    <div class="card border-info bg-light mb-1 p-3">
+                                <div class="card bg-light border-info mb-4">
+                                    <legend class="text-center bg-info text-white p-2">Mis Datos</legend>
+                                    <div class="card-body mb-1 p-3 text-center">
                                         <h6 class="text-info" th:text="'Nombre: '+${usuario.nombre}"></h6>
                                         <p class="mb-0" th:text="'Domicilio: '+${usuario.domicilio}"></p>
                                         <p class="mb-0" th:text="' Localidad: '+${usuario.localidad}"></p>

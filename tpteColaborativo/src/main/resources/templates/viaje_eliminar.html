@@ -42,18 +42,17 @@
                                             </div>
                                         </div>
                                     </div>                                
-                                    <div class="card-body">
-                                    <legend class="text-center text-primary">Eliminar Viaje</legend>
-                                    <div class="card border-primary bg-light p-3 mb-3 text-center">
+                                    <div class="card bg-light border-primary mb-4">
+                                    <legend class="text-center bg-primary text-white p-2">Eliminar Viaje</legend>
+                                    <div class="card-body p-3 mb-3 text-center">
                                             <h6 th:text="'Localidad de Origen: '+${viaje.origen}"></h6>
                                             <h6 th:text="'Localidad de Destino: '+${viaje.destino}"></h6>
                                             <p class="mb-0" th:text="'Fecha de Viaje: '+${viaje.fecha}"></p>
                                             <p class="mb-1" th:text="'Detalle: '+${viaje.detalle}"></p>
-                                            <p style="color : blue" th:text="'Asientos Disponibles: '+${viaje.asientoDisponible}"></p>
+                                            <p class="text-primary" th:text="'Asientos Disponibles: '+${viaje.asientoDisponible}"></p>
                                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-3">
-                                        <div  class="card text-center bg-light border-primary text-primary p-2">                        
+                                        <div  class="card-body text-center bg-light text-info p-2">                        
                                             <h6>¿Seguro desea Eliminar este Viaje?</h6>
-                                            
                                         </div>
                                         </div>
                                             

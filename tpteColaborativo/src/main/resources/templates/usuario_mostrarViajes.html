@@ -56,38 +56,54 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="card-body">
-                                    <legend class="text-center text-primary">Mis Viajes como Conductor</legend>
+                                    <div class="card-body bg-light border-primary mb-4">
+                                    <legend class="text-center bg-primary text-white p-2">Mis Viajes como Conductor</legend>
 
-                                    <div class="card border-primary bg-light mb-3 p-3 text-center" th:each="viaje : ${viajes}">
-                                            <h6 th:text="'Localidad de Origen: '+${viaje.origen}"></h6>
-                                            <h6 th:text="'Localidad de Destino: '+${viaje.destino}"></h6>
-                                            <p class="mb-0" th:text="'Fecha de Viaje: '+${viaje.fecha}"></p>
-                                            <p class="mb-2" th:text="'Detalle: '+${viaje.detalle}"></p>
+                                    <div class="card border-primary bg-light mb-2 p-3 text-center" th:each="viaje : ${viajes}">
+                                            
+                                            <div class="text-center">
                                             <div>
-                                                <h6 class="text-primary">Viajeros:</h6>
+                                            <span class="text-secondary"><strong>Localidad de Origen:</strong></span>    
+                                            <span class="text-primary" th:text="${viaje.origen}"></span>
+                                            </div>
+                                            <div>    
+                                            <span class="text-secondary"><strong>Localidad de Destino:</strong></span>    
+                                            <span class="text-primary" th:text="${viaje.destino}"></span>
+                                            </div>
+                                            <div>
+                                            <span class="text-secondary"><strong>Fecha de Viaje:</strong></span>
+                                            <span class="mb-0 text-secondary" th:text="${viaje.fecha}"></span>
+                                            </div>
+                                            <div class="mb-3">
+                                            <span class="text-secondary"><strong>Detalle:</strong></span>
+                                            <span class="mb-2 text-secondary" th:text="${viaje.detalle}"></span>
+                                            </div>
+                                            </div>
+                                            <div>
+                                                <h6 class="text-info">Viajeros:</h6>
                                                 <div th:each="reserva : ${viaje.reserva}">
-                                                <span class='text-info' th:if="${reserva.estado} == 'CONFIRMADO'" th:text="${reserva.usuarioViajero.nombre}"></span>
-                                                <span th:if="${reserva.calificacionViajero} != null">   
-                                                    <span class="star-rating text-secondary">
+                                                <span class='text-primary' th:if="${reserva.estado} == 'CONFIRMADO'" th:text="${reserva.usuarioViajero.nombre}"></span>
+                                                <div th:if="${reserva.calificacionViajero} != null">   
+                                                    <span class="star-rating text-secondary">(Calificación recibida)
                                                         <i class="fa fa-star" th:classappend="${reserva.calificacionViajero.puntuacion >= 1 ? 'checked' : ''}"></i>
                                                         <i class="fa fa-star" th:classappend="${reserva.calificacionViajero.puntuacion >= 2 ? 'checked' : ''}"></i>
                                                         <i class="fa fa-star" th:classappend="${reserva.calificacionViajero.puntuacion >= 3 ? 'checked' : ''}"></i>
                                                         <i class="fa fa-star" th:classappend="${reserva.calificacionViajero.puntuacion >= 4 ? 'checked' : ''}"></i>
                                                         <i class="fa fa-star" th:classappend="${reserva.calificacionViajero.puntuacion >= 5 ? 'checked' : ''}"></i>
-                                                        (Calificación recibida)
+                                                        
                                                     </span>
-                                                </span>
+                                                    <p class="text-secondary" th:text="'Comentario: '+${reserva.calificacionViajero.comentario}"></p>
+                                                </div>
                                                 <span class="text-secondary" th:if="${reserva.calificacionViajero} == null">(Aún no te ha calificado)</span>
                                                 </div>
                                                 </div>
                                         </div>
-                                    </div>
-                                    <div class="text-center mb-5">
+                                    
+                                    <div class="text-center mb-2">
                                             <a class="btn btn-primary" type="button" th:href="@{/usuario/perfil}">Volver</a>
                                         </div>
                                     </div>
-
+                                </div>
 
                                 </div>
                                 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

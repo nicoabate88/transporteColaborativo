@@ -43,8 +43,8 @@
                                         </div>
                                     </div>
                                      
-                                    <div class="card border-primary  bg-light mb-4">
-                                        <legend class="text-center text-primary p-2">Modificar Mis Datos</legend>
+                                    <div class="card border-primary bg-light mb-4">
+                                        <legend class="text-center text-white bg-primary p-2">Modificar Mis Datos</legend>
                                         <div class="p-3">
                                     <form class="row g-3" th:action="@{/usuario/modifica}" method="POST">
                                         
@@ -69,7 +69,7 @@
                                         </div>
                                         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 mb-4">
                                             <label for="email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="email" name="email" th:value="${usuario.email}" required>
+                                            <input type="email" class="form-control" id="email" name="email" th:value="${usuario.email}" disabled>
                                         </div>
                                          <div class="col-sm-9 col-md-9 col-lg-6 col-xl-6">
                                         </div>

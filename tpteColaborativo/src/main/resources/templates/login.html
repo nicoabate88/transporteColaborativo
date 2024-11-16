@@ -32,8 +32,8 @@
                                                             <input type="password" class="form-control text-center" id="floatingPassword" placeholder="Ingrese Contraseña" name="password">
                                                         </div>
 
-                                                        <div th:if="${error != null}" class="card-body mb-5 text-center" id="mensaje">                        
-                                                            <h6 id="white" th:text="${error}"></h6>                                                                             
+                                                        <div th:if="${error != null}" class="card-body mb-3 text-center text-danger">                        
+                                                            <h6 th:text="${error}"></h6>                                                                             
                                                         </div>
 
                                                         <button class="btn btn-success col-8" type="submit">Iniciar Sesión</button>

@@ -19,38 +19,6 @@
       }
     },
     {
-      "nombre_completo": "Municipio 25 de Mayo",
-      "fuente": "ARBA - Gerencia de Servicios Catastrales",
-      "nombre": "25 de Mayo",
-      "id": "060854",
-      "provincia": {
-        "nombre": "Buenos Aires",
-        "id": "06",
-        "interseccion": 0.015400089407453
-      },
-      "categoria": "Municipio",
-      "centroide": {
-        "lat": -35.5265113228112,
-        "lon": -60.2301576569223
-      }
-    },
-    {
-      "nombre_completo": "Municipio 25 de Mayo",
-      "fuente": "Ministerio de Ecología",
-      "nombre": "25 de Mayo",
-      "id": "540525",
-      "provincia": {
-        "nombre": "Misiones",
-        "id": "54",
-        "interseccion": 0.0231444505929938
-      },
-      "categoria": "Municipio",
-      "centroide": {
-        "lat": -27.3331053109932,
-        "lon": -54.6814951271054
-      }
-    },
-    {
       "nombre_completo": "Comisión de Fomento 28 de Julio",
       "fuente": "Dirección General de Estadística y Censos",
       "nombre": "28 de Julio",
@@ -96,54 +64,6 @@
       "centroide": {
         "lat": -28.826457496527,
         "lon": -58.8280908377803
-      }
-    },
-    {
-      "nombre_completo": "Municipio 9 de Julio",
-      "fuente": "Direc. de Geodesia y Catastro",
-      "nombre": "9 de Julio",
-      "id": "700063",
-      "provincia": {
-        "nombre": "San Juan",
-        "id": "70",
-        "interseccion": 0.00175558192992495
-      },
-      "categoria": "Municipio",
-      "centroide": {
-        "lat": -31.6458046846082,
-        "lon": -68.3890526964703
-      }
-    },
-    {
-      "nombre_completo": "Municipio 9 de Julio",
-      "fuente": "Ministerio de Ecología",
-      "nombre": "9 de Julio",
-      "id": "540161",
-      "provincia": {
-        "nombre": "Misiones",
-        "id": "54",
-        "interseccion": 0.00430069186359841
-      },
-      "categoria": "Municipio",
-      "centroide": {
-        "lat": -26.4348876114394,
-        "lon": -54.4912136871941
-      }
-    },
-    {
-      "nombre_completo": "Municipio 9 de Julio",
-      "fuente": "ARBA - Gerencia de Servicios Catastrales",
-      "nombre": "9 de Julio",
-      "id": "060588",
-      "provincia": {
-        "nombre": "Buenos Aires",
-        "id": "06",
-        "interseccion": 0.0138036600026452
-      },
-      "categoria": "Municipio",
-      "centroide": {
-        "lat": -35.481190578256,
-        "lon": -60.9751157295027
       }
     },
     {
@@ -787,22 +707,6 @@
       }
     },
     {
-      "nombre_completo": "Municipio Almafuerte",
-      "fuente": "Direc. Grl. de Catastro",
-      "nombre": "Almafuerte",
-      "id": "141421",
-      "provincia": {
-        "nombre": "Córdoba",
-        "id": "14",
-        "interseccion": 0.000522399683112227
-      },
-      "categoria": "Municipio",
-      "centroide": {
-        "lat": -32.2022805517205,
-        "lon": -64.2413981036842
-      }
-    },
-    {
       "nombre_completo": "Municipio Almirante Brown",
       "fuente": "ARBA - Gerencia de Servicios Catastrales",
       "nombre": "Almirante Brown",
@@ -1056,22 +960,6 @@
       "centroide": {
         "lat": -33.0710404515635,
         "lon": -60.6419157603517
-      }
-    },
-    {
-      "nombre_completo": "Municipio Alvear",
-      "fuente": "Dirección de Estadística y Censos",
-      "nombre": "Alvear",
-      "id": "180098",
-      "provincia": {
-        "nombre": "Corrientes",
-        "id": "18",
-        "interseccion": 0.0186102520137664
-      },
-      "categoria": "Municipio",
-      "centroide": {
-        "lat": -28.7678860054041,
-        "lon": -56.5272399231192
       }
     },
     {
@@ -1860,22 +1748,6 @@
     },
     {
       "nombre_completo": "Comuna Atahona",
-      "fuente": "Direc. Grl. de Catastro",
-      "nombre": "Atahona",
-      "id": "142609",
-      "provincia": {
-        "nombre": "Córdoba",
-        "id": "14",
-        "interseccion": 0.000046927201276173
-      },
-      "categoria": "Comuna",
-      "centroide": {
-        "lat": -30.8588942256558,
-        "lon": -63.6494965710203
-      }
-    },
-    {
-      "nombre_completo": "Comuna Atahona",
       "fuente": "Dirección de Estadística de la Prov. Tucumán",
       "nombre": "Atahona",
       "id": "908490",
@@ -1956,22 +1828,6 @@
     },
     {
       "nombre_completo": "Municipio Avellaneda",
-      "fuente": "Servicio de Catastro e Información Territorial",
-      "nombre": "Avellaneda",
-      "id": "820091",
-      "provincia": {
-        "nombre": "Santa Fe",
-        "id": "82",
-        "interseccion": 0.00659341919445181
-      },
-      "categoria": "Municipio",
-      "centroide": {
-        "lat": -29.0659341304613,
-        "lon": -59.5355066403473
-      }
-    },
-    {
-      "nombre_completo": "Municipio Avellaneda",
       "fuente": "ARBA - Gerencia de Servicios Catastrales",
       "nombre": "Avellaneda",
       "id": "060035",
@@ -1984,22 +1840,6 @@
       "centroide": {
         "lat": -34.6782056572109,
         "lon": -58.3411168921278
-      }
-    },
-    {
-      "nombre_completo": "Comuna Avellaneda",
-      "fuente": "Direc. Grl. de Catastro",
-      "nombre": "Avellaneda",
-      "id": "142259",
-      "provincia": {
-        "nombre": "Córdoba",
-        "id": "14",
-        "interseccion": 0.00000648377365179265
-      },
-      "categoria": "Comuna",
-      "centroide": {
-        "lat": -30.5973098047243,
-        "lon": -64.2284115066381
       }
     },
     {

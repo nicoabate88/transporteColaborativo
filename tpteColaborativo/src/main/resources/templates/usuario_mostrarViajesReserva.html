@@ -56,19 +56,36 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="card-body">
-                                    <legend class="text-center text-success">Mis Viajes como Viajero</legend>
+                                    <div class="card-body bg-light border-success mb-4">
+                                    <legend class="text-center bg-success text-white p-2">Mis Viajes como Viajero</legend>
 
-                                    <div class="mb-3" th:each="viaje : ${viajes}">
-                                        <div class="card border-success bg-light mb-1 p-2 text-center" th:each="reserva : ${viaje.reserva}" th:if="${reserva.usuarioViajero.idUsuario} == ${idUsuario}"> 
-                                            <h6 th:text="'Origen: '+${viaje.origen}"></h6>
-                                            <h6 th:text="'Destino: '+${viaje.destino}"></h6>
-                                            <p class="mb-0" th:text="'Fecha: '+${viaje.fecha}"></p>
-                                            <p class="mb-2" th:text="'Detalle: '+${viaje.detalle}"></p>
+                                    <div th:each="viaje : ${viajes}">
+                                        <div class="card border-success bg-light mb-2 p-2 text-center" th:each="reserva : ${viaje.reserva}" th:if="${reserva.usuarioViajero.idUsuario} == ${idUsuario}"> 
+                                             <div class="text-center">
+                                            <div>
+                                            <span class="text-secondary"><strong>Localidad de Origen:</strong></span>    
+                                            <span class="text-primary" th:text="${viaje.origen}"></span>
+                                            </div>
+                                            <div>    
+                                            <span class="text-secondary"><strong>Localidad de Destino:</strong></span>    
+                                            <span class="text-primary" th:text="${viaje.destino}"></span>
+                                            </div>
+                                            <div>
+                                            <span class="text-secondary"><strong>Fecha de Viaje:</strong></span>
+                                            <span class="mb-0 text-secondary" th:text="${viaje.fecha}"></span>
+                                            </div>
+                                            <div class="mb-3">
+                                            <span class="text-secondary"><strong>Detalle:</strong></span>
+                                            <span class="mb-2 text-secondary" th:text="${viaje.detalle}"></span>
+                                            </div>
+                                            </div>
                                             <p class="text-primary" th:text="'Asientos Reservados: '+${reserva.asientoReservado}"></p>
                                             <h6 class="text-info mb-1" th:text="'Conductor: '+${reserva.usuarioConductor.nombre}"></h6>
-                                            
-                                            <span th:if="${reserva.calificacionConductor} != null">   
+                                            <div th:if="${reserva.calificacionConductor} == null">
+                                                <p class="text-secondary">(Aún no te ha calificado)</p>
+                                            </div>
+                                            <div th:if="${reserva.calificacionConductor} != null">
+                                            <span>   
                                                     <span class="star-rating text-secondary">Calificación Recibida
                                                         <i class="fa fa-star" th:classappend="${reserva.calificacionConductor.puntuacion >= 1 ? 'checked' : ''}"></i>
                                                         <i class="fa fa-star" th:classappend="${reserva.calificacionConductor.puntuacion >= 2 ? 'checked' : ''}"></i>
@@ -77,10 +94,11 @@
                                                         <i class="fa fa-star" th:classappend="${reserva.calificacionConductor.puntuacion >= 5 ? 'checked' : ''}"></i>
                                                     </span>
                                                 </span>
-                                            <p th:if="${reserva.calificacionConductor.comentario} != ''" th:text="'Comentario recibido: '+${reserva.calificacionConductor.comentario}"></p>
-                                        </div>
+                                            <p class="text-secondary" th:text="'Comentario recibido: '+${reserva.calificacionConductor.comentario}"></p>
+                                            </div>
+                                            </div>
                                     </div>
-                                    <div class="text-center">
+                                    <div class="text-center mb-2">
                                             <a class="btn btn-success" type="button" th:href="@{/usuario/perfil}">Volver</a>
                                         </div>
                                     </div>
